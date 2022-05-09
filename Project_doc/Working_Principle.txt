@@ -1,0 +1,37 @@
+# Peer-to-Peer Group Based File Sharing System
+In this project, a simple 'BitTorrent' like P2P system for file download has been implemented. 
+Its operation is based around the concept of a torrent file, a centralized tracker similar to DHT in principle and an associated swarm of peers. 
+A user (peer) joins a P2P system by contacting the tracker. 
+Any peer in the network that is registered, can upload files in the network and download files from the network. 
+Peers which are online communicate with each other with the help of tracker. 
+When multiple peers requesting for the same file, the publisher splits the file into chunks(parts) and different chunks(parts) are sent to each peer, 
+and the peers download the missing chunks(parts) from each other, thus both download time and load on the server is reduced. 
+The peers select the chunk to be downloaded using piece selection algorithm. 
+Peers can upload file to another peer as well as download from another peer simultaneously.
+
+# Working Principle
+- Peers are different instances of the same code client.cpp. 
+- Each peer/user should create an account and register with tracker. 
+- Login using the user credentials. 
+- Tracker maintains information of clients with their files(shared by client) to assist the clients for the communication between peers. 
+- User can create Group and the one who created the group would become admin of that group. 
+- User can fetch list of all Groups in server. 
+- User can join/leave group. Peer should send request in order to join any group.  
+- Only group admin can accept group join requests. 
+- Upload file across group: Shares the filename and SHA1 hash of the complete file as well as piecewise SHA1 with the tracker. 
+- Fetch list of all sharable files in a Group. 
+
+- Download:  
+- Retrieve the list of peers sharing that file, from tracker. 
+- download file from multiple peers (different pieces of file from different peers - piece selection algorithm ) simultaneously and all the files which client downloads will be shareable to other users in the same group. File integrity is ensured using SHA1 comparison. 
+- Piece selection algorithm used:  
+- Show downloads. 
+- Stop sharing file. 
+- Logout - stops sharing all files. 
+- Whenever client logins, all previously shared files before logout would automatically be on sharing mode. 
+
+# Assumptions
+- Only one tracker is implemented and that tracker should always be online.
+- The peer cannot login from different IP addresses.
+- files of size more than 500kb cannot be downloaded properly.
+- File paths can be absolute/relative.

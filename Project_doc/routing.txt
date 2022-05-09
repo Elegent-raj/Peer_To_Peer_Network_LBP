@@ -1,0 +1,6 @@
+Routing - selection of route between a pair of source and destination
+Static Routing -  routing table
+Flooding routing
+Random routing
+Adaptive routing
+Routing sockets

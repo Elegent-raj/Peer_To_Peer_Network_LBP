@@ -1,0 +1,4 @@
+Socket is a way of speaking to other programs using standard file descriptors.
+Only one process may bind to a specific IP address and port combination using the same transport protocol. 
+Otherwise, we'll have port conflicts, where multiple programs attempt to bind to the same port numbers on the same IP address using the same protocol.
+To connect to another machine, we need a socket connection.
